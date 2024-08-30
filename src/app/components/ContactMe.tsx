@@ -10,15 +10,12 @@ export default function ContactMe() {
     email: "",
     message: "",
   });
-
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
     setIsLoading(true);
-
     const response = await fetch("/api/sendMail", {
       method: "POST",
       headers: {
@@ -26,9 +23,7 @@ export default function ContactMe() {
       },
       body: JSON.stringify(formData),
     });
-
     setIsLoading(false);
-
     if (response.ok) {
       setIsSubmitted(true);
       setFormData({ firstName: "", lastName: "", email: "", message: "" });
@@ -51,8 +46,8 @@ export default function ContactMe() {
         <div className="text-xl font-bold ml-5 mt-5 mb-4 py-2 px-4 bg-red-100 border-4 border-black shadow-[5px_5px_0_0_black] rounded-md inline-block">
           CONTACT ME
         </div>
-        <div className="flex flex-col ml-10 mt-6 mr-10">
-          <div className="flex justify-evenly space-x-4 items-center">
+        <div className="flex flex-col px-4 sm:px-10 mt-6">
+          <div className="flex flex-col sm:flex-row justify-evenly sm:space-x-4 space-y-4 sm:space-y-0">
             <input
               type="text"
               name="firstName"
@@ -76,7 +71,7 @@ export default function ContactMe() {
               required
             />
           </div>
-          <div className="flex justify-evenly space-x-4 items-center mt-4">
+          <div className="mt-4">
             <input
               type="email"
               placeholder="Enter your email"
@@ -90,9 +85,8 @@ export default function ContactMe() {
             />
           </div>
           <textarea
-            className="text-xl bg-light px-3 border-black border-2 rounded-md shadow-[3px_3px_0px_#000] mt-4 py-2"
+            className="text-xl bg-light px-3 border-black border-2 rounded-md shadow-[3px_3px_0px_#000] mt-4 py-2 w-full"
             rows={5}
-            cols={155}
             placeholder="Enter your message"
             name="message"
             value={formData.message}
