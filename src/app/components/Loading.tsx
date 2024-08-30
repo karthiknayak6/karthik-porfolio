@@ -3,17 +3,17 @@ import { BallTriangle } from "react-loader-spinner";
 
 export default function Loading() {
   return (
-    <div className="fixed top-1/2 left-1/2">
-      <BallTriangle
-        height={100}
-        width={100}
-        radius={5}
-        color="#b56e8a"
-        ariaLabel="ball-triangle-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className=" rounded-lg p-4 flex items-center justify-center">
+        <BallTriangle
+          height={60}
+          width={60}
+          radius={5}
+          color="#b56e8a"
+          ariaLabel="ball-triangle-loading"
+          visible={true}
+        />
+      </div>
     </div>
   );
 }
