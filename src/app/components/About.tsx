@@ -27,13 +27,6 @@ export default function () {
             Lets Connect
           </button>
         </div>
-        {/* <Image
-          height={100}
-          width={100}
-          className="mr-80"
-          src={coderPng}
-          alt="TypeScript"
-        /> */}
         <Image
           src={avatar}
           alt="Karthik's Avatar"
